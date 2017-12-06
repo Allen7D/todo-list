@@ -1,0 +1,22 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "JQuery开发前端Todo List应用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bodanli159951/todo-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bodanli159951/todo-list/issues"
+  },
+  "homepage": "https://github.com/bodanli159951/todo-list#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
