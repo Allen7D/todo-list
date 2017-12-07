@@ -1,12 +1,162 @@
 * {
-    background: rgba(0, 0, 0, .1);
+    /*background: rgba(0, 0, 0, .1);*/
+
+    /*任何元素都是box，定义了所有box*/
+    /*整体样式 调整的统一化*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; /*box的大小计算：padding，还是border*/
+
+    /*颜色变换过渡,选择「属性」和「时间」*/
+    -webkit-transition: background .2s;
+    -moz-transition: background .2s;
+    -ms-transition: background .2s;
+    -o-transition: background .2s;
+    transition: background .2s;
+    outline: 0;/*去掉focus等情况的「发光边」*/
 }
 
 body {
-
+    background: #00334b;
+    color: #fff;
 }
 
 .container {
     max-width: 700px;
     margin:0 auto;
+    position: relative;
+}
+
+h1 {
+   text-align: center;
+}
+
+.task-list {
+    margin: 10px 0;/*容器上下间隔*/
+}
+
+input,
+.task-item,
+.task-detail-mask,
+textarea,
+button {
+    /*同级元素的padding要统一*/
+    padding: 10px; /*padding是对内挤压，本身的border还在*/
+    border-radius: 3px;/*圆角*/
+}
+
+textarea,
+button,
+input[type=text],
+input[type=date] {
+    border: 0;/*边框的边界*/
+}
+
+textarea,
+input[type=text],
+input[type=date] {/*类型限定*/
+    width: 100%;
+    display: block;
+    background: #ddd;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+}
+
+textarea {
+    min-height:100px;
+}
+
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=date]:hover,
+input[type=date]:hover{
+    background: #fff; /*focus时变亮*/
+    /*当hover或focus时，shadow的感觉变化*/
+    /*background更亮，shadow应该更浅*/
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+button {
+    display: inline-block;
+    cursor: pointer;
+    color: #eee;
+}
+
+.add-task input[type=text] {
+    /*浮动-->实现input和button同行*/
+    float: left;
+    width: 84%;/*考虑1%的margin*/
+    margin-right: 1%;
+}
+
+.add-task [type=submit],
+.task-item{
+    /*添加质感 box-shadow*/
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .4);
+    -moz-box-shadow:  0 2px 3px rgba(0, 0, 0, .4);
+    box-shadow:  0 2px 3px rgba(0, 0, 0, .4);
+}
+
+.add-task [type=submit] {
+    width: 15%;/*box的宽度占比15%*/
+    background: #46b1e4;
+}
+
+.add-task [type=submit]:hover {
+    background: #5fb9e4;
+}
+
+.task-item {
+    background: #fff;
+    color: #333;
+    margin-bottom: 2px;
+    cursor: pointer;   /*显示小手*/
+}
+
+.task-item:hover {
+    /*鼠标hover,改变样式*/
+    background: #ddd;
+}
+
+.task-detail,
+.task-detail-mask {
+    /*container是相对定位，子元素绝对定位(可以在「container范围内」浮起来到处跑)*/
+    position: absolute;
+}
+
+.task-detail {
+    background: #fff;
+    color:#333;
+    /*「宽高的百分比」是基于父级容器*/
+    width: 50%;
+    height:100%;
+
+    padding: 10px;
+    bottom:0;
+    right: 0;
+}
+
+.task-detail .content {
+    padding: 10px;
+    font-weight: 900;/*字重*/
+    cursor: pointer;
+}
+
+/* > * 所有字元素*/
+.task-detail > * {
+    margin-bottom: 10px;
+}
+
+.task-detail-mask {
+    /*实现对container的遮罩*/
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left:0;
+
+    background: rgba(30, 30, 30, .6);
 }
