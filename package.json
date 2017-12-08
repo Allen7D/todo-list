@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bodanli159951/todo-list#readme",
   "dependencies": {
     "jquery": "^3.2.1",
-    "normalize.css": "^7.0.0"
+    "normalize.css": "^7.0.0",
+    "store": "^2.0.12"
   }
 }

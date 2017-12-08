@@ -25,6 +25,7 @@ body {
     max-width: 700px;
     margin:0 auto;
     position: relative;
+    padding:0 10px; /*于「最小的窗口」也有10px的左右间距*/
 }
 
 h1 {
@@ -34,6 +35,11 @@ h1 {
 .task-list {
     margin: 10px 0;/*容器上下间隔*/
 }
+
+.fr {
+    float: right;
+}
+
 
 input,
 .task-item,
@@ -159,4 +165,16 @@ button {
     left:0;
 
     background: rgba(30, 30, 30, .6);
+}
+
+.task-content {
+    margin-left: 10px;
+}
+.action {
+    color: #999;
+    font-size:90%;
+}
+
+.action:hover {
+    color: #333;/*333比999颜色深*/
 }
