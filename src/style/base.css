@@ -73,7 +73,8 @@ textarea {
     min-height:100px;
 }
 
-
+textarea:hover,
+textarea:focus,
 input[type=text]:hover,
 input[type=text]:focus,
 input[type=date]:hover,
@@ -92,14 +93,14 @@ button {
     color: #eee;
 }
 
-.add-task input[type=text] {
+.task-add input[type=text] {
     /*浮动-->实现input和button同行*/
     float: left;
     width: 84%;/*考虑1%的margin*/
     margin-right: 1%;
 }
 
-.add-task [type=submit],
+.task-add [type=submit],
 .task-item{
     /*添加质感 box-shadow*/
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .4);
@@ -107,12 +108,15 @@ button {
     box-shadow:  0 2px 3px rgba(0, 0, 0, .4);
 }
 
-.add-task [type=submit] {
+.task-add [type=submit] {
     width: 15%;/*box的宽度占比15%*/
+}
+
+[type=submit] {
     background: #46b1e4;
 }
 
-.add-task [type=submit]:hover {
+[type=submit]:hover {
     background: #5fb9e4;
 }
 
@@ -132,6 +136,7 @@ button {
 .task-detail-mask {
     /*container是相对定位，子元素绝对定位(可以在「container范围内」浮起来到处跑)*/
     position: absolute;
+    display: none;
 }
 
 .task-detail {
@@ -144,6 +149,12 @@ button {
     padding: 10px;
     bottom:0;
     right: 0;
+
+    border-radius: 3px 0 0 3px;
+
+    -webkit-box-shadow: 1 1px 2px 1px rbga(0, 0, 0, .1);
+    -moz-box-shadow: 1 1px 2px 1px rbga(0, 0, 0, .1);
+    box-shadow: 1 1px 2px 1px rbga(0, 0, 0, .1);
 }
 
 .task-detail .content {
@@ -153,7 +164,7 @@ button {
 }
 
 /* > * 所有字元素*/
-.task-detail > * {
+.task-detail .input-item {
     margin-bottom: 10px;
 }
 
